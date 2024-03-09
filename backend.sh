@@ -67,5 +67,5 @@ dnf install mysql -y &>>/tmp/expense.log
 echo $?
 
 print_heading "give password"
-mysql -h 172.31.9.13 -uroot -p{mysql_root_password} < /app/schema/backend.sql &>>/tmp/expense.log
+mysql -h 172.31.9.13 -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>/tmp/expense.log
 echo $?
