@@ -21,8 +21,6 @@ print_heading "add user expense"
 id expense &>>/tmp/expense.log
 if [ $? -ne 0 ]; then
   useradd expense &>>/tmp/expense.log
-else
-  useradd expense
 fi
 
 print_status $?
