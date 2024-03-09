@@ -1,18 +1,19 @@
-echo install nginx
+print_heading() {
+  echo $1
+  echo "********** $1 **********" &>>/tmp/expense.log
+}
+print_heading "install nginx"
 dnf install nginx -y &>>/tmp/expense.log
 echo $?
 
-echo enable nginx
+print_heading "enable nginx"
 systemctl enable nginx &>>/tmp/expense.log
 echo $?
 
-echo start nginx
+print_heading s"tart nginx"
 systemctl start nginx &>>/tmp/expense.log
 echo $?
-print_heading() {
-  echo $1
-  echo ********** $1 ********** &>>/tmp/expense.log
-}
+
 print_heading "copy ecpense.conf"
 cp expense.conf /etc/nginx/default.d/expense.conf &>>/tmp/expense.log
 echo $?
