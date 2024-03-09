@@ -1,16 +1,16 @@
 source common.sh
 
 print_heading "install mysql server"
-dnf install mysql-server -y
+dnf install mysql-server -y &>>/tmp/expense.log
 echo $?
 
 print_heading "enable mysqld"
-systemctl enable mysqld
+systemctl enable mysqld &>>/tmp/expense.log
 echo $?
 
 print_heading "start mysqld"
-systemctl start mysqld
+systemctl start mysqld &>>/tmp/expense.log
 echo $?
 
 print_heading "installation of mysqld"
-mysql_secure_installation --set-root-pass ExpenseApp@1
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>>/tmp/expense.log
