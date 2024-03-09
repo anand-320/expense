@@ -5,8 +5,8 @@ print_heading() {
 
 print_status() {
   if [ $1 -eq 0 ]; then
-    echo -e "[32msuccess [0m"
+    echo -e "\e[32msuccess\e [0m"
   else
-    echo -e "[31mfailure [0m"
+    echo -e "\e[31mfailure\e [0m"
   fi
 }
