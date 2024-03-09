@@ -18,7 +18,11 @@ dnf install nodejs -y &>>/tmp/expense.log
 print_status $?
 
 print_heading "add user expense"
-useradd expense &>>/tmp/expense.log
+id expense &>>/tmp/expense.log
+if [ $? -nq 0 ]; then
+  useradd expense &>>/tmp/expense.log
+fi
+
 print_status $?
 
 print_heading "copy backend esrvice file"
