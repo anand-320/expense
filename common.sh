@@ -4,7 +4,7 @@ print_heading() {
 }
 
 print_status() {
-  if [ $? -eq 0]: then
+  if [ $? -eq 0]; then
     echo success
   else
     echo failure
