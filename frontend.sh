@@ -1,7 +1,5 @@
-print_heading() {
-  echo $1
-  echo "********** $1 **********" &>>/tmp/expense.log
-}
+source common.sh
+
 print_heading "install nginx"
 dnf install nginx -y &>>/tmp/expense.log
 echo $?
