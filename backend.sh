@@ -1,9 +1,8 @@
 source common.sh
 
 mysql_root_password=$1
-if [ -z "${mysql_root_password}" ]; then
-  echo input password is missing
-  exit 1
+if [ -z "{$mysql_root_password}" ]; then
+  echo password is correct
 fi
 
 print_heading "disable nodejs -y"
