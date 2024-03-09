@@ -1,6 +1,11 @@
 source common.sh
 
 mysql_root_password=$1
+if [ -z "($mysql_root_password)" ]; then
+  echo password is missing
+  exit 1
+fi 
+
 
 print_heading "disable nodejs -y"
 dnf module disable nodejs -y &>>/tmp/expense.log
