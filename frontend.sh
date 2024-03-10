@@ -12,7 +12,7 @@ print_heading s"tart nginx"
 systemctl start nginx &>>/tmp/expense.log
 print_status $?
 
-print_heading "copy ecpense.conf"
+print_heading "copy expense.conf"
 cp expense.conf /etc/nginx/default.d/expense.conf &>>/tmp/expense.log
 print_status $?
 
