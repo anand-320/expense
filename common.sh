@@ -25,7 +25,7 @@ curl -o /tmp/${component}.zip https://expense-artifacts.s3.amazonaws.com/expense
 print_status $?
 
 print_heading "moving to /app directory"
-cd /app &>>/tmp/expense.log
+cd ${app_dir} &>>/tmp/expense.log
 print_status $?
 
 }

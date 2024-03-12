@@ -38,8 +38,6 @@ app-prereq
 print_heading "unzip the content"
 unzip /tmp/backend.zip &>>/tmp/expense.log
 print_status $?
-
-
 print_heading "install npm"
 npm install &>>/tmp/expense.log
 print_status $?
