@@ -56,6 +56,6 @@ dnf install mysql -y &>>/tmp/expense.log
 print_status $?
 
 print_heading "give password"
-mysql -h mysql-dev.janand.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>/tmp/expense.log
+mysql -h mysql-dev.janand.online -uroot -pAnand@1 < /app/schema/backend.sql &>>/tmp/expense.log
 print_status $?
 
