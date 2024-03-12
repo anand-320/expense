@@ -5,7 +5,7 @@ app_dir=/app
 component=backend
 
 mysql_root_password=$1
-if [ -z "${mysql_root_password}" ]; then
+if [ -z "{$mysql_root_password}" ]; then
   echo password is correct
 fi
 
