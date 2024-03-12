@@ -5,8 +5,10 @@ app_dir=/app
 component=backend
 
 mysql_root_password=$1
+
 if [ -z "${mysql_root_password}" ]; then
-  echo password is correct
+  echo password is missing
+  exit 1
 fi
 
 print_heading "disable nodejs -y"
