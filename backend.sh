@@ -62,3 +62,4 @@ print_status $?
 print_heading "give password"
 mysql -h mysql-dev.janand.online -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>/tmp/expense.log
 print_status $?
+
