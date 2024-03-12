@@ -1,6 +1,7 @@
 source common.sh
 
 app_dir=\app
+
 component=backend
 
 mysql_root_password=$1
