@@ -13,5 +13,5 @@ systemctl start mysqld &>>/tmp/expense.log
 print_status $?
 
 print_heading "installation of mysqld"
-mysql_secure_installation --set-root-pass expenseApp@1
+mysql_secure_installation --set-root-pass Anand@1
 print_status $?
