@@ -12,7 +12,7 @@ print_status() {
 }
 
 app-prereq() {
-print_heading "clear /appx"
+print_heading "clear /app"
 rm -rf ${app_dir} &>>/tmp/expense.log
 print_status $?
 
