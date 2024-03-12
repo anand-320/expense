@@ -1,5 +1,9 @@
 source common.sh
 
+app_dir=/usr/share/nginx/html/
+
+component=frontend
+
 print_heading "install nginx"
 dnf install nginx -y &>>/tmp/expense.log
 print_status $?
@@ -16,17 +20,8 @@ print_heading "copy expense.conf"
 cp expense.conf /etc/nginx/default.d/expense.conf &>>/tmp/expense.log
 print_status $?
 
-print_heading "remove files"
-rm -rf /usr/share/nginx/html/* &>>/tmp/expense.log
-print_status $?
+app-prereq
 
-print_heading "download content"
-curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip &>>/tmp/expense.log
-print_status $?
-
-print_heading "change directory"
-cd /usr/share/nginx/html &>>/tmp/expense.log
-print_status $?
 
 print_heading "unzip file"
 unzip /tmp/frontend.zip &>>/tmp/expense.log

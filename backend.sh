@@ -1,5 +1,8 @@
 source common.sh
 
+app_dir=\app
+component=backend
+
 mysql_root_password=$1
 if [ -z "{$mysql_root_password}" ]; then
   echo password is correct
@@ -29,21 +32,7 @@ print_heading "copy backend esrvice file"
 cp backend.service /etc/systemd/system/backend.service &>>/tmp/expense.log
 print_status $?
 
-print_heading "clear /appx"
-rm -rf /app &>>/tmp/expense.log
-print_status $?
-
-print_heading "creating /app"
-mkdir /app &>>/tmp/expense.log
-print_status $?
-
-print_heading "downloading content"
-curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip &>>/tmp/expense.log
-print_status $?
-
-print_heading "moving to /app directory"
-cd /app &>>/tmp/expense.log
-print_status $?
+app-prereq
 
 print_heading "unzip the content"
 unzip /tmp/backend.zip &>>/tmp/expense.log
@@ -74,5 +63,5 @@ dnf install mysql -y &>>/tmp/expense.log
 print_status $?
 
 print_heading "give password"
-mysql -h 172.31.9.13 -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>/tmp/expense.log
+mysql -h mysql-dev.janand.online -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>/tmp/expense.log
 print_status $?
