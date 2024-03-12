@@ -10,6 +10,7 @@ print_status() {
     echo -e "\e[31mfailure\e[0m"
   fi
 }
+
 app-prereq() {
 print_heading "clear /appx"
 rm -rf ${app_dir} &>>/tmp/expense.log
