@@ -4,6 +4,8 @@ app_dir=/app
 
 component=backend
 
+mysql_root_password=$1
+
 
 print_heading "disable nodejs -y"
 dnf module disable nodejs -y &>>/tmp/expense.log
@@ -56,6 +58,6 @@ dnf install mysql -y &>>/tmp/expense.log
 print_status $?
 
 print_heading "give password"
-mysql -h mysql-dev.janand.online -uroot -pAnand@1 < /app/schema/backend.sql &>>/tmp/expense.log
+mysql -h mysql-dev.janand.online -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>/tmp/expense.log
 print_status $?
 
