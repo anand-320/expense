@@ -19,5 +19,8 @@ systemctl start mysqld &>>/tmp/expense.log
 print_status $?
 
 print_heading "installation of mysqld"
-mysql_secure_installation --set-root-pass {mysql_root_password}
+echo 'show databases' | mysql -h 172.31.13.176 -uroot -p{mysql_root_password}
+if [ $? ne 0 ]; then
+  mysql_secure_installation --set-root-pass {mysql_root_password} &>>/tmp/expense.log
+fi
 print_status $?
